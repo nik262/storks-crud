@@ -1,4 +1,5 @@
 import  React from 'react';
+import Logout from './components/LogoutButton'
 import {useQuery,  } from '@apollo/client';
 import gql from 'graphql-tag';
 
@@ -29,8 +30,9 @@ function Jobs() {
     <div key={jobid}>
 
       <div>
-      <p>{job_title}</p> 
-      <sub>{job_category}</sub>
+      <p>{job_title}</p> <span>{job_category}</span>
+ 
+      
       </div>
 
     </div>
