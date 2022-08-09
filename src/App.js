@@ -28,7 +28,7 @@ import Jobs from './pages/Jobs'
 import PostaJob from './pages/PostaJob'
 
 // login/logout page related imports
-import LoginPage from './pages/LoginPage'
+import LoginPage from './components/LoginPage'
 
 
 
