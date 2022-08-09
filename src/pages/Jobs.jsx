@@ -1,5 +1,5 @@
 import  React from 'react';
-import Logout from './components/LogoutButton'
+
 import {useQuery,  } from '@apollo/client';
 import gql from 'graphql-tag';
 

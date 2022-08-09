@@ -4,18 +4,22 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 function Navbar() {
   return (
 
-    <ul>
-    <li>
-      <Link to="/">Home</Link>
-    </li>
-    <li>
-      <Link to="/jobs">Jobs</Link>
-    </li>
-    <li>
-      <Link to="/postajob">Post a Job</Link>
-    </li>
-   
-  </ul>
+    <nav>
+
+      <a href="/">Storks</a>
+
+      <ul>
+        <li> 
+          <a href="/jobs">Jobs</a>
+        </li>
+        <li> 
+        <a href="/postajob">Post a Job</a>
+        </li>
+
+      </ul>
+
+    </nav>
+    
 
   );
 }
