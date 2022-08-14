@@ -1,7 +1,9 @@
 import  React from 'react';
+import {Link, Route, Routes} from 'react-router-dom'
 
 import {useQuery,  } from '@apollo/client';
 import gql from 'graphql-tag';
+
 
 // this is the GRAPHQL QUERY TO GET THE JOB TITLE AND JOB CATEGORY
 const JOBS = gql`
@@ -26,16 +28,30 @@ function Jobs() {
 
   // MAPS QUERY RESULTS AND MAKES THE ui (using html) 
   return data.Jobs.map(({jobid, job_title, job_category}) => (
-
-    <div key={jobid}>
+      
 
       <div>
-      <p>{job_title}</p> <span>{job_category}</span>
- 
-      
+        
+        
+        <ul>
+        
+          <li key={jobid}>
+          <Link to={`/jobs/${jobid}`}>
+          <p>{job_title}</p> | <span>{job_category}</span> 
+          </Link>
+
+          </li>
+        </ul>
+
+        <hr/>
+
+        <Route path={`/jobs/:jobsId`}>
+          
+        </Route>
       </div>
 
-    </div>
+
+
 
   ));
   
