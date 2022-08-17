@@ -9,7 +9,7 @@ import * as React from "react";
 
 import { Switch, BrowserRouter as Router, Routes, Route, Link, } from "react-router-dom";
 
-import { Auth0Provider } from '@auth0/auth0-react';
+import { Auth0Provider, Auth0Context } from '@auth0/auth0-react';
 
 import {
   ApolloProvider,
@@ -26,14 +26,17 @@ import Navigation from './components/Navigation'
 import Home from './pages/Home'
 import Jobs from './pages/Jobs'
 import PostaJob from './pages/PostaJob'
+import Profile from './pages/Profile'
 
 // login/logout page related imports
 import LoginPage from './components/LoginPage'
+import LogoutButton from './components/LogoutButton'
 
 
 
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientauth0 = process.env.REACT_APP_AUTH0_CLIENT;
+
 
 
 //connecting to hasura console using admin password
@@ -81,7 +84,7 @@ function App() {
 
       <LoginPage></LoginPage>
       
-      <h1 >I will stork</h1>
+      <LogoutButton></LogoutButton>
 
       {/*
         navigation component also needs styling, refer to ./components/navigation and style the html there for it to be affected here
@@ -103,10 +106,15 @@ function App() {
             jobs page needs styling but dont do it rn
           */}
           <Jobs />
+
         </Route>
 
         <Route path="/postajob">
           <PostaJob />
+        </Route>
+
+        <Route path="/profile">
+          <Profile />
         </Route>
         
 

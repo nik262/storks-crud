@@ -1,5 +1,6 @@
-import  React from 'react';
-import {Link, Route, Routes} from 'react-router-dom'
+import  * as React from 'react';
+import {Link, Route, Routes, useRouteMatch} from 'react-router-dom'
+
 
 import {useQuery,  } from '@apollo/client';
 import gql from 'graphql-tag';
@@ -22,12 +23,17 @@ function Jobs() {
 
   //THIS IS WHERE IT QUERIES IT 
   const {loading, error, data } = useQuery(JOBS);
+  const { path, url } = useRouteMatch();
 
   if(loading)  return <p>Loading...</p>
   if(error)  return <p>error try again</p>
 
+
+
   // MAPS QUERY RESULTS AND MAKES THE ui (using html) 
   return data.Jobs.map(({jobid, job_title, job_category}) => (
+
+
       
 
       <div>
@@ -36,17 +42,18 @@ function Jobs() {
         <ul>
         
           <li key={jobid}>
-          <Link to={`/jobs/${jobid}`}>
+
+          <Link to={`${url}/${jobid}`}>
+
           <p>{job_title}</p> | <span>{job_category}</span> 
+
           </Link>
 
           </li>
         </ul>
 
-        <hr/>
+        <Route path={`${path}/jobid`}>
 
-        <Route path={`/jobs/:jobsId`}>
-          
         </Route>
       </div>
 

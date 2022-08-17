@@ -15,6 +15,9 @@ function Navbar() {
         <li> 
         <a href="/postajob">Post a Job</a>
         </li>
+        <li> 
+        <a href="/profile">Profile</a>
+        </li>
 
       </ul>
 
