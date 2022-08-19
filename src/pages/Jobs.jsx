@@ -1,5 +1,6 @@
 import  * as React from 'react';
 import {Link, Route, Routes, useRouteMatch} from 'react-router-dom'
+import ViewJob from '../pages/ViewJob';
 
 
 import {useQuery,  } from '@apollo/client';
@@ -10,6 +11,7 @@ import gql from 'graphql-tag';
 const JOBS = gql`
 query Search {
   Jobs {
+    jobid
     job_title
     job_category
   }
@@ -45,15 +47,14 @@ function Jobs() {
 
           <Link to={`${url}/${jobid}`}>
 
-          <p>{job_title}</p> | <span>{job_category}</span> 
+          <p>{job_title}</p> | <span>{job_category}</span>  
 
           </Link>
-
           </li>
         </ul>
 
-        <Route path={`${path}/jobid`}>
-
+        <Route path={`${path}/${jobid}`}>
+          <ViewJob/>
         </Route>
       </div>
 
